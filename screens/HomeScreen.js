@@ -109,7 +109,7 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0CE874',
+    backgroundColor: '#66FDFF',
   },
   developmentModeText: {
     marginBottom: 20,
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     height: 150,
     resizeMode: 'contain',
     marginTop: 100,
-    marginLeft: -10,
+    marginLeft: 10,
   },
   getStartedContainer: {
     alignItems: 'center',
