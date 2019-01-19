@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Button,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
@@ -16,6 +17,28 @@ export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
+
+  constructor(){
+    super();
+    this.state = {
+      challengeList: [
+        "",
+        {
+          title: "keeping it straight",
+          text: "Draw a picture using only straight lines (at different lengths and angles)."
+        },
+        {
+          title: "similarities",
+          text: "How is a cat like a refrigerator?"
+        },
+        {
+          title: "poverty = zero",
+          text: "If you had one year to eliminate poverty in your city, literally down to zero, how would you do it? Give me five ways."
+        },
+      ],
+      number: 0
+    }
+  }
 
   render() {
     return (
@@ -59,10 +82,23 @@ export default class HomeScreen extends React.Component {
             />
           </View>
 
+          <View>
+            <Button 
+              title="Press me"
+              onPress={this.newChallengeHandler}
+              color="#fff"
+              buttonStyle={{
+                height: 10,
+                width: 50,
+                backgroundColor: "rgba(92, 99,216, 1)"
+              }}
+            ></Button>
+          </View>
+
 
           <View style={styles.helpContainer}>
-            <Text style={styles.headlineText}>Challenge Title</Text>
-            <Text style={styles.basicText}>Here's a description of the challenge. Here's a description of the challenge. Here's a description of the challenge. Here's a description of the challenge. Here's a description of the challenge. Here's a description of the challenge.</Text>
+            <Text style={styles.headlineText}>{this.state.challengeList[this.state.number].title}</Text>
+            <Text style={styles.basicText}>{this.state.challengeList[this.state.number].text}</Text>
           </View>
 
         </ScrollView>
@@ -101,6 +137,13 @@ export default class HomeScreen extends React.Component {
     }
   }
 
+  newChallengeHandler = () => {
+    this.setState({
+      number: Math.ceil((Math.random()*3))
+    })
+    return
+  }
+
   _handleLearnMorePress = () => {
     WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
   };
@@ -116,6 +159,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#072C8C',
+  },
+  buttonStyle: {
+    color: "#fff"
   },
   developmentModeText: {
     marginBottom: 20,
