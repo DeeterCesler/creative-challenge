@@ -59,15 +59,21 @@ export default class HomeScreen extends React.Component {
             />
           </View>
 
+
+          <View style={styles.helpContainer}>
+            <Text style={styles.headlineText}>Challenge Title</Text>
+            <Text style={styles.basicText}>Here's a description of the challenge. Here's a description of the challenge. Here's a description of the challenge. Here's a description of the challenge. Here's a description of the challenge. Here's a description of the challenge.</Text>
+          </View>
+
         </ScrollView>
 
-        <View style={styles.tabBarInfoContainer}>
+        {/* <View style={styles.tabBarInfoContainer}>
           <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
 
           <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
             <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
           </View>
-        </View>
+        </View> */}
       </View>
     );
   }
@@ -109,7 +115,7 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#66FDFF',
+    backgroundColor: '#072C8C',
   },
   developmentModeText: {
     marginBottom: 20,
@@ -120,6 +126,16 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 30,
+  },
+  headlineText: {
+    fontSize: 45,
+    fontWeight: "bold",
+    color: "white"
+  },
+  basicText: {
+    fontSize: 25,
+    padding: 50,
+    color: "white"
   },
   welcomeContainer: {
     alignItems: 'center',
